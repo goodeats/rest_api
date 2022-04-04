@@ -30,13 +30,8 @@ app.get('/api/courses/:id', (req, res) => {
   // /api/courses/1?sort=date #=> {sort: date}
   // res.send(req.query);
 
-  const course = courses.find(
-    (c) => c.id === parseInt(req.params.id)
-  );
-  if (!course)
-    res
-      .status(404)
-      .send('The course with the given ID was not found');
+  const course = findCourse(req.params.id);
+  if (!course) resNotFoundCourse(res);
   res.send(course);
 });
 
@@ -51,11 +46,7 @@ app.post('/api/courses', (req, res) => {
   // }
 
   const { error } = validateCourse(req.body);
-  if (error) {
-    const errorMessage = error.details[0].message;
-    res.status(400).send(errorMessage);
-    return;
-  }
+  if (error) return resBadRequestCourse(res, error);
 
   const course = {
     id: courses.length + 1, // no db to auto-assign
@@ -66,26 +57,40 @@ app.post('/api/courses', (req, res) => {
 
 app.put('/api/courses/:id', (req, res) => {
   // find
-  const course = courses.find(
-    (c) => c.id === parseInt(req.params.id)
-  );
-  if (!course)
-    res
-      .status(404)
-      .send('The course with the given ID was not found');
+  const course = findCourse(req.params.id);
+  if (!course) resNotFoundCourse(res);
 
   // validate
   const { error } = validateCourse(req.body);
-  if (error) {
-    const errorMessage = error.details[0].message;
-    res.status(400).send(errorMessage);
-    return;
-  }
+  if (error) return resBadRequestCourse(res, error);
 
   // update
   course.name = req.body.name;
   res.send(course);
 });
+
+app.delete('/api/courses/:id', (req, res) => {
+  const course = findCourse(req.params.id);
+  if (!course) resNotFoundCourse(res);
+
+  const index = courses.indexOf(course);
+  courses.splice(index, 1);
+
+  res.send(course);
+});
+
+function findCourse(id) {
+  return courses.find((c) => c.id === parseInt(id));
+}
+
+function resNotFoundCourse(res) {
+  res.status(404).send('The course with the given ID was not found');
+}
+
+function resBadRequestCourse(res, error) {
+  const errorMessage = error.details[0].message;
+  res.status(400).send(errorMessage);
+}
 
 function validateCourse(course) {
   const schema = Joi.object().keys({
