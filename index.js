@@ -5,7 +5,7 @@ const app = express();
 // https://expressjs.com/en/5x/api.html
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Hello World!!');
 });
 
 app.get('/api/courses', (req, res) => {

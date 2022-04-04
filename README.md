@@ -13,3 +13,8 @@ I have much more experience in Ruby on Rails so wanted to get a Node server demo
 ### Express JS
 
 Express JS simplifies the routing by reducing the need to write a lot of if statements. They have a great reference [here](https://expressjs.com/en/5x/api.html)
+
+### Nodemon
+
+Run the server with [Nodemon](https://nodemon.io/) so you don't have to resetart the server manually
+
