@@ -10,6 +10,7 @@ I have much more experience in Ruby on Rails so wanted to get a Node server demo
 
 `npm start` or `yarn start` or `node index.js`
 
+## About
 ### Express JS
 
 Express JS simplifies the routing by reducing the need to write a lot of if statements. They have a great reference [here](https://expressjs.com/en/5x/api.html)
@@ -18,3 +19,8 @@ Express JS simplifies the routing by reducing the need to write a lot of if stat
 
 Run the server with [Nodemon](https://nodemon.io/) so you don't have to resetart the server manually
 
+### Environment Variables
+
+Using environment variables will help hide keys or offer flexibility in setting values for different environments (development, staging, production).
+
+Here is a great blog from the fine folks at Twilio about different ways to set this up: [Working With Environment Variables in Node.js](https://www.twilio.com/blog/working-with-environment-variables-in-node-js-html).
