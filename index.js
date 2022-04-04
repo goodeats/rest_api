@@ -14,6 +14,14 @@ app.get('/api/courses', (req, res) => {
   res.send([1, 2, 3]);
 });
 
+app.get('/api/courses/:id', (req, res) => {
+  // /api/courses/1 #=> {id: 1}
+  // res.send(req.params);
+
+  // /api/courses/1?sort=date #=> {sort: date}
+  res.send(req.query);
+});
+
 // PORT
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
