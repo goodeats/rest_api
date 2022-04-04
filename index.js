@@ -5,6 +5,8 @@ const Joi = require('joi');
 app.use(bodyParser.json()); // for parsing application/json
 require('dotenv').config();
 
+// keeping some of the extra comments on here since I'll be using this as reference
+
 // reference:
 // https://expressjs.com/en/5x/api.html
 

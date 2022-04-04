@@ -30,3 +30,7 @@ Here is a great blog from the fine folks at Twilio about different ways to set t
 [body-parser](https://github.com/expressjs/body-parser) required now with [latest version of express](https://expressjs.com/en/5x/api.html). User-controlled input is untrusted and can fail in multiple ways so middleware is necessary to parse POST requests.
 
 [Joi](https://joi.dev/api/?v=17.6.0) offers a nicely readable syntax for defining and validating body params
+
+### Takeaway
+
+As a Ruby on Rails developer I haven't used Node in a production environment yet, but I enjoy writing Javascript and can see myself picking things up quickly from here.
