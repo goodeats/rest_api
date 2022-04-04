@@ -24,3 +24,9 @@ Run the server with [Nodemon](https://nodemon.io/) so you don't have to resetart
 Using environment variables will help hide keys or offer flexibility in setting values for different environments (development, staging, production).
 
 Here is a great blog from the fine folks at Twilio about different ways to set this up: [Working With Environment Variables in Node.js](https://www.twilio.com/blog/working-with-environment-variables-in-node-js-html).
+
+### Handling POST Request Body
+
+[body-parser](https://github.com/expressjs/body-parser) required now with [latest version of express](https://expressjs.com/en/5x/api.html). User-controlled input is untrusted and can fail in multiple ways so middleware is necessary to parse POST requests.
+
+[Joi](https://joi.dev/api/?v=17.6.0) offers a nicely readable syntax for defining and validating body params
